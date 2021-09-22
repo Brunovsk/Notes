@@ -12,7 +12,9 @@ public class NotaFiscal {
 	private boolean statusFaturado = false;
 	private boolean statusCancelado = false;
 	
-	
+	public NotaFiscal(){
+		
+	}
 	
 	public NotaFiscal(String nomeCliente, long cnpj, Date dataCadastro, boolean statusFaturado,
 			boolean statusCancelado) {
@@ -93,6 +95,16 @@ public class NotaFiscal {
 		Date dataHj = new Date();
 		long diff = dataHj.getTime() - dataCadastro.getTime();
 		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+	}
+	public static NotaFiscal criarNota(String nomeCliente, long cnpj,Date dataCadastro, boolean statusFaturado, boolean statusCancelado) {
+		NotaFiscal nota = new NotaFiscal();
+		nota.nomeCliente = nomeCliente;
+		nota.cnpj = cnpj;
+		nota.dataCadastro = dataCadastro;
+		nota.statusFaturado = statusFaturado;
+		nota.statusCancelado= statusCancelado;
+		return nota;
+		
 	}
 	
 	
